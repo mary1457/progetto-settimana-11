@@ -43,9 +43,10 @@ const MyNav = () => {
                            
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link href="#" className="d-flex align-items-center">
-                            <i className="bi bi-book-fill"></i>&nbsp; Your Library
-                            </Nav.Link>
+                        <Link to={'/favourites'} className='nav-link d-flex align-items-center'>   <i className="bi bi-book-fill"></i>&nbsp; Your Library   </Link>
+                          
+                           
+                          
                         </Nav.Item>
                         <Form className="mt-3" onSubmit={handleSubmit}>
                             <InputGroup>

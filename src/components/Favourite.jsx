@@ -1,24 +1,15 @@
 import React from "react";
-import { Row, Col, Button } from "react-bootstrap";
-import { useEffect } from 'react';
+import { Row, Col,Button } from "react-bootstrap";
+
 import { useDispatch, useSelector } from 'react-redux';
-import { getMusicsAction } from "../redux/actions";
-import { useParams } from 'react-router-dom';
-import { addToPlayer, addToFavouriteAction,removeFromFavouriteAction } from '../redux/actions';
-const Result = () => {
-    const { query } = useParams();
+import { removeFromFavouriteAction, addToFavouriteAction, addToPlayer} from "../redux/actions";
+
+
+const Favourite = () => {
+   
+    const favourite = useSelector((state) => state.favourite.list);
     const dispatch = useDispatch();
-
-    useEffect(() => {
-        if (query) {
-            dispatch(getMusicsAction(query, "search"));
-        }
-    }, [query, dispatch]);
-
-
-
-    const resultSongs = useSelector((state) => state.search);
-    const favourite = useSelector((state) => state.favourite.list)
+   
     return (
         <main className="mainPage col-12 col-md-9 offset-md-3" >
 
@@ -33,15 +24,15 @@ const Result = () => {
                 </Col>
             </Row>
 
-
+            {/* Rock Classics Section */}
             <Row>
 
                 <Col xs={10}>
                     <div id="rock">
-                        <h2>Results</h2>
+                        <h2>Favourites</h2>
                         <Row className="row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3 g-2" id="rockSection">
-                            {resultSongs.map((song) => (
-                                <Col className="text-center d-flex flex-column justify-content-between" key={song.id}>
+                            {favourite.map((song) => (
+                                <Col className="text-center" key={song.id}>
                                     <img
                                         className="img-fluid"
                                         src={song.album.cover_medium}
@@ -80,4 +71,4 @@ const Result = () => {
     );
 };
 
-export default Result;
+export default Favourite;
