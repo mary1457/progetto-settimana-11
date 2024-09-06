@@ -23,7 +23,7 @@ const MainPage = () => {
     const favourite = useSelector((state) => state.favourite.list)
 
     return (
-        <main className="mainPage col-12 col-md-9 offset-md-3" >
+        <main className="mainPage col-12 col-md-9 offset-md-3 mb-5" >
 
             {/* Links Section */}
             <Row>

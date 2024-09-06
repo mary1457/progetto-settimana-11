@@ -9,7 +9,7 @@ import {  useSelector } from 'react-redux';
 const PlayerControls = () => {
     const playlist = useSelector((state) => state.player);
   return (
-    <div className="bg-container sticky-bottom pt-1">
+    <div className="bg-container fixed-bottom pt-1">
       <Container fluid className='h-100'>
        
             <Row className="h-100  justify-content-center align-items-center offset-lg-2">
