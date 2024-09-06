@@ -1,24 +1,27 @@
-import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './style.css'; 
 import './App.css';
-
+import MyNav from './components/MyNav';
+import MainPage from './components/MainPage';
+import { Container, Row } from 'react-bootstrap';
+import PlayerControls from './components/PlayerControls';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Result from './components/Result';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+   <Container fluid>
+    <Row>
+      <MyNav></MyNav>
+    <Routes>
+    <Route  path="/" element={  <MainPage></MainPage>}></Route>
+    <Route path="/search/:query" element={<Result></Result>} />
+      </Routes>
+      </Row>
+      </Container>
+      <PlayerControls></PlayerControls>
+    </BrowserRouter>
+
   );
 }
 
